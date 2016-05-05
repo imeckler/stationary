@@ -10,3 +10,5 @@ let create k v = (k, v)
 let class_ c = create "class" c
 
 let href url = create "href" url
+
+let src url = create "src" url

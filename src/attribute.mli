@@ -7,3 +7,5 @@ val create : string -> string -> t
 val class_ : string -> t
 
 val href : string -> t
+
+val src : string -> t
