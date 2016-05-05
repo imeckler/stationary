@@ -18,5 +18,5 @@ Library "stationary"
   Path: src
   BuildTools:ocamlbuild
   Modules: Stationary
-  InternalModules: Html
+  InternalModules: Html, Attribute, File, File_system, Site, Std_internal
   BuildDepends: core, async
