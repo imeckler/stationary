@@ -6,6 +6,8 @@ val node
   -> t list
   -> t
 
+val literal : string -> t
+
 val text : string -> t
 
 val to_string : t -> string

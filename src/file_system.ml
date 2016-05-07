@@ -1,6 +1,6 @@
 open Core.Std
 open Async.Std
-open Std_internal
+open Stationary_std_internal
 
 type t =
   | File of File.t

@@ -2,11 +2,14 @@ open Core.Std
 
 type t =
   | Text of string
+  | Literal of string
   | Node of string * Attribute.t list * t list
   | No_close of string * Attribute.t list
   [@@deriving sexp]
 
 let node tag attrs children = Node (tag, attrs, children)
+
+let literal s = Literal s
 
 let text s = Text s
 
@@ -27,6 +30,7 @@ let escape_for_html s = s
 let rec to_lines =
   let indent_lines = List.map ~f:(sprintf "  %s") in
   function
+  | Literal s -> [ s ]
   | No_close (tag, attrs) ->
     [ sprintf "<%s %s>" tag
         (String.concat ~sep:" "
