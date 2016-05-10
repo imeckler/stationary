@@ -11,8 +11,8 @@ let wrap =
     in
     node "div" [ Attribute.class_ "navbar-collapse" ]
       [ node "ul" [ Attribute.class_ "nav navbar-nav" ]
-          [ page "Home" "/"
-          ; page "About" "/about.html"
+          [ page "Home" "index.html"
+          ; page "About" "about.html"
           ]
       ]
   in
