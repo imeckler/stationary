@@ -1,5 +1,5 @@
-module Html        = struct include Html end
-module Attribute   = struct include Attribute end
-module File        = struct include File end
-module File_system = struct include File_system end
-module Site        = struct include Site end
+module Html        = Html
+module Attribute   = Attribute
+module File        = File
+module File_system = File_system
+module Site        = Site

@@ -17,17 +17,15 @@ Description:
 Library "stationary"
   Path: src
   BuildTools:ocamlbuild
-  Modules: Stationary
-  InternalModules: Html, Attribute, File, File_system, Site, Stationary_std_internal
+  Modules: Stationary, Html, Attribute, File, File_system, Site, Stationary_std_internal
   BuildDepends: core, async
 
 Document "stationary_docs"
   Type: ocamlbuild (0.4)
-  BuildTools: ocamldoc
-
+  BuildTools: ocamldoc, ocamlbuild
   Title: Docs for stationary
   XOCamlbuildPath: .
   XOCamlbuildExtraArgs:
-    "-docflags '-colorize-code -short-functors -charset utf-8'"
+    "-docflags '-colorize-code -short-functors -charset utf-8' -tag thread -cflags '-w -40'"
   XOCamlbuildLibraries: stationary
 
