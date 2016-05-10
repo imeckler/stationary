@@ -6,5 +6,9 @@ may contain HTML files generated when your program runs.
 
 Please see
 `examples/blog` for a sample site that uses most of the library's
-functionality. Documentation may be found [here](http://imeckler.github.io/stationary/).
+functionality. 
+The example is up and running
+[here](http://imeckler.github.io/stationary/example-blog/).
+
+Documentation may be found [here](http://imeckler.github.io/stationary/).
 
