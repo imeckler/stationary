@@ -21,12 +21,12 @@ Library "stationary"
   Modules: Stationary, Html, Attribute, File, File_system, Site
   BuildDepends: core, async
 
-Document "stationary_docs"
-  Type: ocamlbuild (0.4)
-  BuildTools: ocamldoc, ocamlbuild
-  Title: Docs for stationary
-  XOCamlbuildPath: .
-  XOCamlbuildExtraArgs:
-    "-docflags '-colorize-code -short-functors -charset utf-8' -tag thread -cflags '-w -40'"
-  XOCamlbuildLibraries: stationary
+# Document "stationary_docs"
+#   Type: ocamlbuild (0.4)
+#   BuildTools: ocamldoc, ocamlbuild
+#   Title: Docs for stationary
+#   XOCamlbuildPath: .
+#   XOCamlbuildExtraArgs:
+#     "-docflags '-colorize-code -short-functors -charset utf-8' -tag thread -cflags '-w -40'"
+#   XOCamlbuildLibraries: stationary
 
