@@ -78,7 +78,7 @@ let main () =
         ; node "ul" []
             (List.map posts ~f:(fun p ->
               node "li" []
-                [ node "a" [ Attribute.href ("/posts" ^/ Post.filename p) ]
+                [ node "a" [ Attribute.href ("posts" ^/ Post.filename p) ]
                     [ text p.title ]
                 ]))
         ]
