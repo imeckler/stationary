@@ -21,7 +21,7 @@ let wrap =
       [ Attribute.class_ "camel"
       ]
       [ node "img"
-          [ Attribute.src "/assets/camel.jpg"
+          [ Attribute.src "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/07._Camel_Profile%2C_near_Silverton%2C_NSW%2C_07.07.2007.jpg/487px-07._Camel_Profile%2C_near_Silverton%2C_NSW%2C_07.07.2007.jpg"
           ]
           []
       ; node "p" []
@@ -33,7 +33,7 @@ let wrap =
     node "html" []
       [ node "head" []
           [ link ~href:"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-          ; link ~href:"/assets/main.css"
+          ; link ~href:"assets/main.css"
           ; node "script"
               [ Attribute.create "type" "text/javascript"
               ; Attribute.src "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
