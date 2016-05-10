@@ -11,3 +11,5 @@ myocamlbuild.ml
 **.mllib
 **/META
 **.mldylib
+**.docdir
+**.odocl
