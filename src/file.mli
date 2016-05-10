@@ -1,5 +1,8 @@
 open Async.Std
 
+(** This module provides a type which represents a specification of a file
+    that should appear in the filesystem that is your site. *)
+
 (** This type represents a file in the filesystem that is your site. *)
 type t
 
@@ -12,5 +15,8 @@ val of_html : name:string -> Html.t -> t
     will be used. *)
 val of_path : ?name:string -> string -> t
 
+(** Instantiates the file specification in the given directory. You should
+    not typically need to call this directly and instead should just use
+    [Site.build] which calls this. *)
 val build : t -> in_directory:string -> unit Deferred.t
 
