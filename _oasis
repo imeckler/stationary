@@ -1,5 +1,5 @@
 OASISFormat:  0.4
-OCamlVersion: >= 4.02.3
+OCamlVersion: >= 4.03.0
 Name:         stationary
 Version:      0.0.1
 Maintainers:  Izaak Meckler
