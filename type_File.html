@@ -1,0 +1,21 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Stationary" rel="Chapter" href="Stationary.html">
+<link title="Html" rel="Chapter" href="Html.html">
+<link title="Attribute" rel="Chapter" href="Attribute.html">
+<link title="File" rel="Chapter" href="File.html">
+<link title="File_system" rel="Chapter" href="File_system.html">
+<link title="Site" rel="Chapter" href="Site.html"><title>File</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;of_html&nbsp;:&nbsp;name:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Html</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">File</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;of_path&nbsp;:&nbsp;?name:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">File</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;build&nbsp;:&nbsp;<span class="constructor">File</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;in_directory:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Async</span>.<span class="constructor">Std</span>.<span class="constructor">Deferred</span>.t
+<span class="keyword">end</span></code></body></html>

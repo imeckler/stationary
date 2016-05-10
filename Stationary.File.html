@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Stationary.Attribute.html">
+<link rel="next" href="Stationary.File_system.html">
+<link rel="Up" href="Stationary.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Stationary" rel="Chapter" href="Stationary.html">
+<link title="Html" rel="Chapter" href="Html.html">
+<link title="Attribute" rel="Chapter" href="Attribute.html">
+<link title="File" rel="Chapter" href="File.html">
+<link title="File_system" rel="Chapter" href="File_system.html">
+<link title="Site" rel="Chapter" href="Site.html"><title>Stationary.File</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Stationary.Attribute.html" title="Stationary.Attribute">Previous</a>
+&nbsp;<a class="up" href="Stationary.html" title="Stationary">Up</a>
+&nbsp;<a class="post" href="Stationary.File_system.html" title="Stationary.File_system">Next</a>
+</div>
+<h1>Module <a href="type_Stationary.File.html">Stationary.File</a></h1>
+
+<pre><span class="keyword">module</span> File: <code class="type"><a href="File.html">File</a></code></pre><hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+<div class="info ">
+This type represents a file in the filesystem that is your site.<br>
+</div>
+
+
+<pre><span id="VALof_html"><span class="keyword">val</span> of_html</span> : <code class="type">name:string -> <a href="Html.html#TYPEt">Html.t</a> -> <a href="File.html#TYPEt">t</a></code></pre><div class="info ">
+Specify that there ought to be a file with the given name containing
+    the given HTML.<br>
+</div>
+
+<pre><span id="VALof_path"><span class="keyword">val</span> of_path</span> : <code class="type">?name:string -> string -> <a href="File.html#TYPEt">t</a></code></pre><div class="info ">
+Specify that there ought to be a copy of the file at the given path
+    with the given name. If no name is provided the basename of the path
+    will be used.<br>
+</div>
+
+<pre><span id="VALbuild"><span class="keyword">val</span> build</span> : <code class="type"><a href="File.html#TYPEt">t</a> -> in_directory:string -> unit Async.Std.Deferred.t</code></pre><div class="info ">
+Instantiates the file specification in the given directory. You should
+    not typically need to call this directly and instead should just use
+    <code class="code"><span class="constructor">Site</span>.build</code> which calls this.<br>
+</div>
+</body></html>

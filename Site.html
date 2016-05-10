@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="File_system.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Stationary" rel="Chapter" href="Stationary.html">
+<link title="Html" rel="Chapter" href="Html.html">
+<link title="Attribute" rel="Chapter" href="Attribute.html">
+<link title="File" rel="Chapter" href="File.html">
+<link title="File_system" rel="Chapter" href="File_system.html">
+<link title="Site" rel="Chapter" href="Site.html"><title>Site</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="File_system.html" title="File_system">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Site.html">Site</a></h1>
+
+<pre><span class="keyword">module</span> Site: <code class="code"><span class="keyword">sig</span></code> <a href="Site.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+This module allows you to construct a site.<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+<div class="info ">
+A representation of your site.<br>
+</div>
+
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type"><a href="File_system.html#TYPEt">File_system.t</a> list -> <a href="Site.html#TYPEt">t</a></code></pre><div class="info ">
+Create a site with the given filesystem.<br>
+</div>
+
+<pre><span id="VALbuild"><span class="keyword">val</span> build</span> : <code class="type"><a href="Site.html#TYPEt">t</a> -> dst:string -> unit Async.Std.Deferred.t</code></pre><div class="info ">
+Build a site at the specified path.<br>
+</div>
+</body></html>

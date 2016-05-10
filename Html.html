@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Stationary.html">
+<link rel="next" href="Attribute.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Stationary" rel="Chapter" href="Stationary.html">
+<link title="Html" rel="Chapter" href="Html.html">
+<link title="Attribute" rel="Chapter" href="Attribute.html">
+<link title="File" rel="Chapter" href="File.html">
+<link title="File_system" rel="Chapter" href="File_system.html">
+<link title="Site" rel="Chapter" href="Site.html"><title>Html</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Stationary.html" title="Stationary">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Attribute.html" title="Attribute">Next</a>
+</div>
+<h1>Module <a href="type_Html.html">Html</a></h1>
+
+<pre><span class="keyword">module</span> Html: <code class="code"><span class="keyword">sig</span></code> <a href="Html.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+This module allows you to generate HTML pages for a site at
+    site compilation time.
+    For example, suppose you wanted to have a page which contained
+    all the images that are in a particular directory on disk.
+    You could programmatically create such a page using this module.<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+<div class="info ">
+The type of an HTML tree<br>
+</div>
+
+
+<pre><span class="keyword">include</span> ??</pre>
+
+<pre><span id="VALnode"><span class="keyword">val</span> node</span> : <code class="type">string -> <a href="Attribute.html#TYPEt">Attribute.t</a> list -> <a href="Html.html#TYPEt">t</a> list -> <a href="Html.html#TYPEt">t</a></code></pre><div class="info ">
+Create an HTML node with the given tag, attributes and children.
+    For example, <code class="code">node <span class="string">"div"</span> [] []</code> creates an empty div with no
+    attributes and no children.<br>
+</div>
+
+<pre><span id="VALliteral"><span class="keyword">val</span> literal</span> : <code class="type">string -> <a href="Html.html#TYPEt">t</a></code></pre><div class="info ">
+For <code class="code">s : string</code>, <code class="code">literal s</code> just considers the string <code class="code">s</code> to be
+    a piece of HTML. The important property is that for <code class="code">t : t</code> containing
+    <code class="code">literal s</code>, <code class="code">s</code> will appear verbatim in <code class="code">to_string t</code>.
+<p>
+
+    This is useful for example in the following situation. Suppose you've got
+    a markdown post on disk that you'd like to include as an HTML page in
+    your site. You can do so by shelling out to a markdown compiler to convert
+    it to a string representing HTML, and then using that string as a <code class="code">t</code> by
+    using <code class="code">literal</code>.<br>
+</div>
+
+<pre><span id="VALtext"><span class="keyword">val</span> text</span> : <code class="type">string -> <a href="Html.html#TYPEt">t</a></code></pre><div class="info ">
+Creates an HTML text node.<br>
+</div>
+
+<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Html.html#TYPEt">t</a> -> string</code></pre><div class="info ">
+Convert the given HTML to a string.<br>
+</div>
+
+<pre><span id="VALlink"><span class="keyword">val</span> link</span> : <code class="type">href:string -> <a href="Html.html#TYPEt">t</a></code></pre><div class="info ">
+Creates a <code class="code">link</code> element, as used for css.<br>
+</div>
+
+<pre><span id="VALhr"><span class="keyword">val</span> hr</span> : <code class="type"><a href="Attribute.html#TYPEt">Attribute.t</a> list -> <a href="Html.html#TYPEt">t</a></code></pre><div class="info ">
+Creates an <code class="code">hr</code> element.<br>
+</div>
+</body></html>
