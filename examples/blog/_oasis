@@ -14,7 +14,7 @@ XOCamlbuildExtraArgs: "-tag thread -cflags '-w -40'"
 Description:
   Example blog for stationary
 
-Executable site
+Executable build_site
   Path: src
   BuildTools:ocamlbuild
   install: true

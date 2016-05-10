@@ -19,10 +19,13 @@ let to_html { date; title; paragraphs } =
     ]
 
 let filename {title;_} =
-  String.map ~f:(fun c -> if c = ' ' then '-' else c) title
-  |> String.filter ~f:(fun c ->
-      Char.is_alphanum c
-      || c = '-'
-      || c = '_'
-    )
+  let s =
+    String.map ~f:(fun c -> if c = ' ' then '-' else c) title
+    |> String.filter ~f:(fun c ->
+        Char.is_alphanum c
+        || c = '-'
+        || c = '_'
+      )
+  in
+  s ^ ".html"
 
