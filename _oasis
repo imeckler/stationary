@@ -17,7 +17,8 @@ Description:
 Library "stationary"
   Path: src
   BuildTools:ocamlbuild
-  Modules: Stationary, Html, Attribute, File, File_system, Site, Stationary_std_internal
+  InternalModules: Stationary_std_internal
+  Modules: Stationary, Html, Attribute, File, File_system, Site
   BuildDepends: core, async
 
 Document "stationary_docs"
