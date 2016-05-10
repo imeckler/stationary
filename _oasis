@@ -20,3 +20,14 @@ Library "stationary"
   Modules: Stationary
   InternalModules: Html, Attribute, File, File_system, Site, Stationary_std_internal
   BuildDepends: core, async
+
+Document "stationary_docs"
+  Type: ocamlbuild (0.4)
+  BuildTools: ocamldoc
+
+  Title: Docs for stationary
+  XOCamlbuildPath: .
+  XOCamlbuildExtraArgs:
+    "-docflags '-colorize-code -short-functors -charset utf-8'"
+  XOCamlbuildLibraries: stationary
+
