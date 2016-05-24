@@ -19,7 +19,7 @@ Library "stationary"
   BuildTools:ocamlbuild
   InternalModules: Stationary_std_internal
   Modules: Stationary, Html, Attribute, File, File_system, Site
-  BuildDepends: core, async
+  BuildDepends: core, async, omd
 
 # Document "stationary_docs"
 #   Type: ocamlbuild (0.4)
