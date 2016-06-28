@@ -15,6 +15,14 @@ val of_html : name:string -> Html.t -> t
     will be used. *)
 val of_path : ?name:string -> string -> t
 
+(** Generate the contents of a file by running the given program with
+    the given arguments. *)
+val collect_output
+  : name:string
+  -> prog:string
+  -> args:string list
+  -> t
+
 (** Instantiates the file specification in the given directory. You should
     not typically need to call this directly and instead should just use
     [Site.build] which calls this. *)

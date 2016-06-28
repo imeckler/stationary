@@ -1,7 +1,7 @@
 <src/*.ml{,i}>: predicate(ppx_driver)
 <src/*.ml{,i}>: pp(ppx-jane -dump-ast -inline-test-lib stationary)
 # OASIS_START
-# DO NOT EDIT (digest: 0e86c806b48c0cabbe4fd969095d0633)
+# DO NOT EDIT (digest: 0c8a7f050748212b5655d3e36cd08457)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
@@ -20,4 +20,5 @@ true: annot, bin_annot
 "src/stationary.cmxs": use_stationary
 <src/*.ml{,i,y}>: package(async)
 <src/*.ml{,i,y}>: package(core)
+<src/*.ml{,i,y}>: package(omd)
 # OASIS_STOP
