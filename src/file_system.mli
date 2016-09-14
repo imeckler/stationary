@@ -14,7 +14,7 @@ val directory : string -> t list -> t
 
 (** Specify that the given directory ought to be copied into the filesystem
     of your site. *)
-val copy_directory : string -> t
+val copy_directory : ?name:string -> string -> t
 
 (** Build the specification at a given path. *)
 val build : t -> dst:string -> unit Deferred.t

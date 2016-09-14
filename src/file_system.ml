@@ -7,7 +7,7 @@ type t =
   | Directory of directory
 and directory =
   | Synthetic of string * t list
-  | Copy_directory of string
+  | Copy_directory of { path : string; name : string }
 
 let file file = File file
 
@@ -15,16 +15,22 @@ let directory name ts =
   validate_filename name;
   Directory (Synthetic (name, ts))
 
-let copy_directory dir = Directory (Copy_directory dir)
+let copy_directory ?name path =
+  let name =
+    match name with
+    | None -> Filename.basename path
+    | Some name -> name
+  in
+  Directory (Copy_directory {path; name})
 
 let rec build t ~dst =
   match t with
   | File file ->
     File.build file ~in_directory:dst
 
-  | Directory (Copy_directory dir) ->
+  | Directory (Copy_directory {path; name}) ->
     Process.run_expect_no_output_exn ~prog:"cp"
-      ~args:["-r"; dir; dst ^/ Filename.basename dir] ()
+      ~args:["-r"; path; dst ^/ name] ()
 
   | Directory (Synthetic (name, ts)) ->
     let name' = dst ^/ name in
