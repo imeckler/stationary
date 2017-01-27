@@ -5,6 +5,7 @@
     You could programmatically create such a page using this module.
 *)
 
+open Async.Std
 
 (** The type of an HTML tree *)
 type t [@@deriving sexp]
@@ -30,11 +31,13 @@ val node
 *)
 val literal : string -> t
 
+val markdown : string -> t
+
 (** Creates an HTML text node. *)
 val text : string -> t
 
 (** Convert the given HTML to a string. *)
-val to_string : t -> string
+val to_string : t -> string Deferred.t
 
 (** Creates a [link] element, as used for css. *)
 val link : href:string -> t

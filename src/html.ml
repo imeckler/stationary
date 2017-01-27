@@ -1,13 +1,17 @@
 open Core.Std
+open Async.Std
 
 type t =
   | Text of string
+  | Markdown of string
   | Literal of string
   | Node of string * Attribute.t list * t list
   | No_close of string * Attribute.t list
   [@@deriving sexp]
 
 let node tag attrs children = Node (tag, attrs, children)
+
+let markdown s = Markdown s
 
 let literal s = Literal s
 
@@ -30,19 +34,29 @@ let escape_for_html s = s
 let rec to_lines =
   let indent_lines = List.map ~f:(sprintf "  %s") in
   function
-  | Literal s -> [ s ]
+  | Markdown s ->
+    let%bind proc =
+      Process.create_exn ~prog:"pandoc"  ~args:[] ()
+    in
+    let stdin = Process.stdin proc in
+    Writer.write stdin s;
+    let%bind () = Writer.close stdin in
+    let lines = Reader.lines (Process.stdout proc) in
+    Pipe.to_list lines
+  | Literal s -> return [ s ]
   | No_close (tag, attrs) ->
-    [ sprintf "<%s %s>" tag
-        (String.concat ~sep:" "
-          (List.map ~f:Attribute.to_string attrs))
-    ]
+    return
+      [ sprintf "<%s %s>" tag
+          (String.concat ~sep:" "
+            (List.map ~f:Attribute.to_string attrs))
+      ]
 
-  | Text s -> [ escape_for_html s ]
+  | Text s -> return [ escape_for_html s ]
 
   | Node (tag, attrs, children) ->
-    let children =
-      List.concat_map children
-        ~f:(fun t -> indent_lines (to_lines t))
+    let%map children =
+      Deferred.List.concat_map children ~f:(fun t ->
+        Deferred.map ~f:indent_lines (to_lines t))
     in
     let opening =
       match attrs with
@@ -56,4 +70,5 @@ let rec to_lines =
     :: children
     @ [ sprintf "</%s>" tag]
 
-let to_string t = String.concat ~sep:"\n" (to_lines t)
+let to_string t = Deferred.map ~f:(String.concat ~sep:"\n") (to_lines t)
+;;

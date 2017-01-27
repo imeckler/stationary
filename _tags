@@ -1,5 +1,5 @@
 <src/*.ml{,i}>: predicate(ppx_driver)
-<src/*.ml{,i}>: pp(ppx-jane -dump-ast -inline-test-lib stationary)
+<src/*.ml{,i}>: pp(ppx-jane -dump-ast -inline-test-lib projectx)
 # OASIS_START
 # DO NOT EDIT (digest: 0e86c806b48c0cabbe4fd969095d0633)
 # Ignore VCS directories, you can use the same kind of rule outside

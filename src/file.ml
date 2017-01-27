@@ -26,8 +26,8 @@ let collect_output ~name ~prog ~args =
 let build t ~in_directory =
   match t with
   | Html (name, html) ->
-    Writer.save (in_directory ^/ name)
-      ~contents:(Html.to_string html)
+    let%bind contents = Html.to_string html in
+    Writer.save (in_directory ^/ name) ~contents
   | Of_path {name; path} ->
     Process.run_expect_no_output_exn ~prog:"cp"
       ~args:[ path; in_directory ^/ name ]
