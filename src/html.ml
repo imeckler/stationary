@@ -36,7 +36,7 @@ let rec to_lines =
   function
   | Markdown s ->
     let%bind proc =
-      Process.create_exn ~prog:"pandoc"  ~args:[] ()
+      Process.create_exn ~prog:"pandoc"  ~args:["--mathjax"] ()
     in
     let stdin = Process.stdin proc in
     Writer.write stdin s;
