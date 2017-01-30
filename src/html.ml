@@ -4,6 +4,7 @@ open Async.Std
 type t =
   | Text of string
   | Markdown of string
+  | Load of string
   | Literal of string
   | Node of string * Attribute.t list * t list
   | No_close of string * Attribute.t list
@@ -34,6 +35,14 @@ let escape_for_html s = s
 let rec to_lines =
   let indent_lines = List.map ~f:(sprintf "  %s") in
   function
+  | Load path ->
+    let (_, ext) = Filename.split_extension path in
+    begin match ext with
+    | Some "markdown" | Some "md" ->
+      Process.run_lines_exn ~prog:"pandoc" ~args:[path; "--mathjax"] ()
+    | Some _ | None ->
+      Reader.file_lines path
+    end
   | Markdown s ->
     let%bind proc =
       Process.create_exn ~prog:"pandoc"  ~args:["--mathjax"] ()
