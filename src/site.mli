@@ -1,4 +1,4 @@
-open Async.Std
+open Async
 
 (** This module allows you to construct a site. *)
 

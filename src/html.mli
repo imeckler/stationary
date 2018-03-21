@@ -5,7 +5,7 @@
     You could programmatically create such a page using this module.
 *)
 
-open Async.Std
+open Async
 
 (** The type of an HTML tree *)
 type t [@@deriving sexp]

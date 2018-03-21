@@ -1,5 +1,5 @@
 open Core.Std
-open Async.Std
+open Async
 
 type t =
   { filesystems : File_system.t list }

@@ -1,4 +1,4 @@
-open Async.Std
+open Async
 
 (** This module provides a type which represents a specification of a file
     that should appear in the filesystem that is your site. *)
