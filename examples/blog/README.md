@@ -8,4 +8,4 @@ This example is up and running
 
 To build and serve the site on http://0.0.0.0:8000, run `sh build_and_serve.sh`.
 
-Check out `src/main.ml` to see how it's done.
+Check out `src/build_site.ml` to see how it's done.

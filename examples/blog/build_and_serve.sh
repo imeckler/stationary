@@ -1,11 +1,15 @@
-#!/bin/bash
+#!/bin/sh
 
-oasis setup
-make
+set -eu
+
+dune build @all
+
 if [ -d "_site" ]; then
   rm -r _site
 fi
-./main.native
-pushd _site
-python -m SimpleHTTPServer
-popd
+
+dune exec src/build_site.exe
+
+( cd _site
+  python -m SimpleHTTPServer
+)

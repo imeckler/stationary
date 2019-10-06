@@ -1,4 +1,4 @@
-open Core.Std
+open Core
 
 type t = string * string
   [@@deriving sexp]

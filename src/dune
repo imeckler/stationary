@@ -1,0 +1,6 @@
+(library
+  (public_name stationary)
+  (wrapped false)
+  (modules stationary html attribute file file_system site stationary_std_internal)
+  (private_modules stationary_std_internal)
+  (libraries core async))
