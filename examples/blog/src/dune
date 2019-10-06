@@ -1,0 +1,3 @@
+(executable
+  (name build_site)
+  (libraries core async stationary))
